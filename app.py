@@ -1,5 +1,6 @@
 from ollama import chat
 from prompts import RECRUITER_PROMPT
+from utils import parse_llm_response
 
 with open("sample_resume.txt", "r") as file:
     resume = file.read()
@@ -17,5 +18,13 @@ response = chat(
         }
     ]
 )
-print(response["message"]["content"])
 
+candidate = parse_llm_response(
+    response["message"]["content"]
+)
+
+print(candidate)
+print("\n")
+
+print(candidate["skills"])
+print(candidate["candidate_name"])
