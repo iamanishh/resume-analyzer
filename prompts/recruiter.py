@@ -1,10 +1,10 @@
 RECRUITER_PROMPT = """ 
  You are a senior technical recruiter.
- 
+
  Analyze the following resume.
- 
+
  Return only valid JSON.
- 
+
  The JSON must contain:
  {{
   "candidate_name": "",
@@ -14,8 +14,8 @@ RECRUITER_PROMPT = """
   "strengths": [],
   "weaknesses": []
   }}
-  
+
   Resume: 
-  
+
   {resume}
  """

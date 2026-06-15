@@ -1,27 +1,20 @@
-from ollama import chat
-from prompts import RECRUITER_PROMPT
-from utils import parse_llm_response
+from pip._internal.models import candidate
 
-with open("sample_resume.txt", "r") as file:
+from services.llm_service import LLMService
+from prompts.recruiter import RECRUITER_PROMPT
+
+
+with open("data/sample_resume.txt", "r") as file:
     resume = file.read()
 
 prompt = RECRUITER_PROMPT.format(
     resume = resume
 )
 
-response = chat(
-    model="llama3.2:3b",
-    messages=[
-        {
-            "role": "user",
-            "content": prompt
-        }
-    ]
-)
+llm = LLMService()
 
-candidate = parse_llm_response(
-    response["message"]["content"]
-)
+candidate = llm.ask(prompt)
+
 
 if candidate:
     print(candidate["candidate_name"])
