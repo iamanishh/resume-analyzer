@@ -1,12 +1,12 @@
 from ollama import chat
 from utils.json_parser import parse_llm_response
-
+from config.settings import MODEL_NAME
 
 class LLMService:
 
-    def ask(self, prompt: str):
+    def analyze_resume(self, prompt: str):
         response = chat(
-            model="llama3.2:3b",
+            model= MODEL_NAME,
             messages=[
                 {
                     "role": "user",

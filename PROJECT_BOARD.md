@@ -25,6 +25,12 @@
 - [x] Move sample data to data/
 
 ## Sprint 4 🚧
-- [ ] ResumeService
-- [ ] Configuration
-- [ ] Better architecture project structure
+- [x] ResumeService
+- [x] Configuration
+- [x] Better architecture project structure
+
+## Sprint 5 ✅
+- [x] Configuration layer
+- [x] Extract model name
+- [x] Improve method naming
+- [x] Better console output
