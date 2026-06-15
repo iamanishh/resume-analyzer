@@ -34,3 +34,9 @@
 - [x] Extract model name
 - [x] Improve method naming
 - [x] Better console output
+
+## Sprint 6 ✅
+- [x] FastAPI Integration
+- [x] REST API
+- [x] Swagger
+- [x] AI endpointI

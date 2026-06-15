@@ -1,20 +1,28 @@
 # Resume Analyzer (AI)
 
-An AI-powered Resume Analyzer built using Python and Ollama.
+AI-powered Resume Analyzer built using Python and Ollama.
 
 ## Tech Stack
 
 - Python
 - Ollama
 - Llama 3.2
+
+## Features
+
+- Resume Reader
 - Prompt Engineering
-
-## Current Features
-
-- Read resume from text file
-- Analyze resume using a local LLM
-- Return structured JSON
-- Parse LLM response into Python dictionary
-- Basic JSON validation
-- Configuration Management
+- Structured JSON Output
+- Local LLM Integration
 - Layered Architecture
+- Configuration Layer
+- FastAPI REST API
+- Swagger Documentation
+- Local LLM Integration
+
+## Current Status
+
+🚧 In Progress
+
+Current Sprint:
+Sprint 6 - FastAPI Integration

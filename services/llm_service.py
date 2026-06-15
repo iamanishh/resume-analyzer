@@ -15,5 +15,5 @@ class LLMService:
             ]
         )
         return parse_llm_response(
-            response["messages"]["content"]
+            response["message"]["content"]
         )
