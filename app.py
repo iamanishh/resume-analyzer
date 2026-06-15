@@ -23,8 +23,10 @@ candidate = parse_llm_response(
     response["message"]["content"]
 )
 
-print(candidate)
-print("\n")
+if candidate:
+    print(candidate["candidate_name"])
+    print(candidate["skills"])
 
-print(candidate["skills"])
-print(candidate["candidate_name"])
+else:
+    print("Resume analysis failed... ")
+
