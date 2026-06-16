@@ -43,3 +43,5 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Global exception handling
 - Centralized error responses
 - Structured error logging
+- Dockerize resume analyzer
+

@@ -1,4 +1,4 @@
-from ollama import chat
+from ollama import Client
 from config.settings import MODEL_NAME
 from utils.json_parser import parse_llm_response
 from utils.logger import logger
@@ -7,9 +7,13 @@ class LLMService:
 
     def analyze_resume(self, prompt: str):
 
+        client = Client(
+            host="http://host.docker.internal:11434"
+        )
+
         for attempt in range(2):
 
-            response = chat(
+            response = client.chat(
                 model=MODEL_NAME,
                 messages=[
                     {

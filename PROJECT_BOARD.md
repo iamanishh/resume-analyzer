@@ -83,3 +83,12 @@
 - [x] Added global exception handler
 - [x] Centralized unexpected error handling
 - [x] Improved API security by hiding internal exceptions
+
+
+## Sprint 15 ✅
+- [x] Added dockerfile
+- [x] Build image
+- [x] Run container
+- [x] Connect docker to ollama
+- [x] Analyze resume succesfully
+
