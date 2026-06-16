@@ -78,3 +78,8 @@
 - [x] Added .env configuration
 - [x] Introduced python-dotenv
 - [x] Externalized model configuration
+
+## Sprint 14 ✅
+- [x] Added global exception handler
+- [x] Centralized unexpected error handling
+- [x] Improved API security by hiding internal exceptions

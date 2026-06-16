@@ -40,3 +40,6 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Environment variable support
 - Externalized application configuration
 - Model selection using .env
+- Global exception handling
+- Centralized error responses
+- Structured error logging

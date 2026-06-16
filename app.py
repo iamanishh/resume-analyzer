@@ -1,9 +1,13 @@
 import shutil
-
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from services.resume_service import ResumeService
 from models.resume_analysis import ResumeAnalysis
+from exceptions.handlers import register_exception_handlers
+
+
 app = FastAPI()
+
+register_exception_handlers(app)
 
 resume_service = ResumeService()
 
@@ -16,6 +20,7 @@ def home():
 
 @app.get("/analyze", response_model=ResumeAnalysis)
 def analyze_resume():
+
     candidate = resume_service.analyze_resume(
         "data/sample_resume.pdf"
     )
