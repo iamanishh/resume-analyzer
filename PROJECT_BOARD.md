@@ -73,3 +73,8 @@
 - [x] Introduced centralized logging
 - [x] Replaced print() with logger
 - [x] Added INFO, WARNING and ERROR logs
+
+## Sprint 13 ✅
+- [x] Added .env configuration
+- [x] Introduced python-dotenv
+- [x] Externalized model configuration

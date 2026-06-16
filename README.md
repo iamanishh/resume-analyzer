@@ -37,10 +37,6 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Centralized logging
 - Structured log messages
 - Improved debugging support
-
-## Current Status
-
-🚧 In Progress
-
-Current Sprint:
-Sprint 6 - FastAPI Integration
+- Environment variable support
+- Externalized application configuration
+- Model selection using .env

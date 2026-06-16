@@ -1,2 +1,7 @@
-MODEL_NAME = "llama3.2:3b"
+from dotenv import load_dotenv
+import os
 
+
+load_dotenv()
+
+MODEL_NAME = os.getenv("MODEL_NAME")
