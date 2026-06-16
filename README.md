@@ -34,6 +34,9 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Retry mechanism
 - Improved prompt engineering
 - Better JSON validation
+- Centralized logging
+- Structured log messages
+- Improved debugging support
 
 ## Current Status
 

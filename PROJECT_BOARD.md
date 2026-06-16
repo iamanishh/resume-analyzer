@@ -68,3 +68,8 @@
 - [x] Retry failed LLM responses
 - [x] Better JSON parsing
 - [x] AI response validation
+
+## Sprint 12 ✅
+- [x] Introduced centralized logging
+- [x] Replaced print() with logger
+- [x] Added INFO, WARNING and ERROR logs

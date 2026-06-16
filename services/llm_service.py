@@ -1,7 +1,7 @@
 from ollama import chat
 from config.settings import MODEL_NAME
 from utils.json_parser import parse_llm_response
-
+from utils.logger import logger
 
 class LLMService:
 
@@ -24,9 +24,15 @@ class LLMService:
             )
 
             if candidate:
-                print(f"LLM succeeded on attempt {attempt + 1}")
+                logger.info(
+                    f"LLM succeeded on attempt {attempt + 1}"
+                )
                 return candidate
 
-            print(f"Retrying... attempt {attempt + 1}")
+            logger.warning(
+                f"Retrying LLM request {attempt + 1}"
+            )
+
+        logger.error("LLM failed after all retry attempts")
 
         return None

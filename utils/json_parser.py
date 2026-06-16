@@ -1,15 +1,16 @@
 import json
+from utils.logger import logger
 
 def parse_llm_response(response: str):
     try:
         return json.loads(response)
 
     except Exception as e:
-        print("JSON parsing error ...")
+        logger.error("JSON to parse LLM response...")
 
-        print(e)
+        logger.error(e)
 
-        print(response)
+        logger.error(response)
 
         return None
 
