@@ -25,6 +25,8 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - FastAPI REST API
 - Swagger Documentation
 - Pydantic Response Models
+- PDF Resume Analysis
+- Text Extraction using PyMuPDF
 
 ## Current Status
 

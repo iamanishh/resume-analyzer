@@ -15,7 +15,7 @@ def home():
 @app.get("/analyze", response_model=ResumeAnalysis)
 def analyze_resume():
     candidate = resume_service.analyze_resume(
-        "data/sample_resume.txt"
+        "data/sample_resume.pdf"
     )
 
     if candidate:

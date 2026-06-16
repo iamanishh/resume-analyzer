@@ -50,3 +50,9 @@
 - FastAPI REST API
 - Swagger Documentation
 - Pydantic Response Models
+
+## Sprint 9 ✅
+- [x] PDF support
+- [x] DocumentService
+- [x] Text extraction using PyMuPDF
+- [x] Analyze PDF resumes
