@@ -19,6 +19,9 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - FastAPI REST API
 - Swagger Documentation
 - Local LLM Integration
+- Better project architecture
+- Introduced data models
+- Ready for PDF upload
 
 ## Current Status
 

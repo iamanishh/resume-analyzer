@@ -40,3 +40,8 @@
 - [x] REST API
 - [x] Swagger
 - [x] AI endpointI
+
+## Sprint 7 ✅
+- [x] Introduced Pydantic models
+- [x] Better API structure
+- [x] FastAPI response model preparation
