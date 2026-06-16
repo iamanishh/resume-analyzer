@@ -30,6 +30,10 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Upload PDF through Swagger UI
 - Analyze user uploaded resume
 - Multipart form support
+- Reliable AI response handling
+- Retry mechanism
+- Improved prompt engineering
+- Better JSON validation
 
 ## Current Status
 

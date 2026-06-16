@@ -4,7 +4,13 @@ def parse_llm_response(response: str):
     try:
         return json.loads(response)
 
-    except json.JSONDecodeError:
+    except Exception as e:
+        print("JSON parsing error ...")
+
+        print(e)
+
+        print(response)
+
         return None
 
 

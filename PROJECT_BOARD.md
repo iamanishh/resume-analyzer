@@ -62,3 +62,9 @@
 - [x] Upload PDF using Swagger
 - [x] Multipart file support
 - [x] Save uploaded files
+
+## Sprint 11 ✅
+- [x] Improved prompt engineering
+- [x] Retry failed LLM responses
+- [x] Better JSON parsing
+- [x] AI response validation
