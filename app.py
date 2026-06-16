@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from services.resume_service import ResumeService
-
+from models.resume_analysis import ResumeAnalysis
 app = FastAPI()
 
 resume_service = ResumeService()
@@ -12,7 +12,7 @@ def home():
         "message" : "Resume analyzer API is running"
     }
 
-@app.get("/analyze")
+@app.get("/analyze", response_model=ResumeAnalysis)
 def analyze_resume():
     candidate = resume_service.analyze_resume(
         "data/sample_resume.txt"

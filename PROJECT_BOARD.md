@@ -45,3 +45,8 @@
 - [x] Introduced Pydantic models
 - [x] Better API structure
 - [x] FastAPI response model preparation
+
+## Sprint 8 ✅
+- FastAPI REST API
+- Swagger Documentation
+- Pydantic Response Models
