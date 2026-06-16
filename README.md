@@ -27,6 +27,9 @@ AI-powered Resume Analyzer built using Python and Ollama.
 - Pydantic Response Models
 - PDF Resume Analysis
 - Text Extraction using PyMuPDF
+- Upload PDF through Swagger UI
+- Analyze user uploaded resume
+- Multipart form support
 
 ## Current Status
 

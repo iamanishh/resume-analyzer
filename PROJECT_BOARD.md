@@ -56,3 +56,9 @@
 - [x] DocumentService
 - [x] Text extraction using PyMuPDF
 - [x] Analyze PDF resumes
+
+## Sprint 10 ✅
+- [x] POST /analyze endpoint
+- [x] Upload PDF using Swagger
+- [x] Multipart file support
+- [x] Save uploaded files
