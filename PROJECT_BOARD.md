@@ -85,10 +85,10 @@
 - [x] Improved API security by hiding internal exceptions
 
 
-## Sprint 15 ✅
-- [x] Added dockerfile
-- [x] Build image
-- [x] Run container
-- [x] Connect docker to ollama
-- [x] Analyze resume succesfully
-
+## Sprint 15 ✅ Dockerization
+- [x] Created Dockerfile
+- [x] Built Docker image
+- [x] Containerized FastAPI
+- [x] Connected container to Ollama
+- [x] Added docker-compose.yml
+- [x] Verified API inside Docker

@@ -25,12 +25,12 @@ def analyze_resume():
         "data/sample_resume.pdf"
     )
 
-    if candidate:
-        return candidate
-
-    return {
-        "error": "Resume alaysis failed... "
-    }
+    if candidate is None:
+        raise HTTPException(
+            status_code=500,
+            detail="Resume analysis failed..."
+        )
+    return candidate
 
 @app.post("/analyze", response_model=ResumeAnalysis)
 def analyze_resume(file: UploadFile = File(...)):
@@ -38,7 +38,7 @@ def analyze_resume(file: UploadFile = File(...)):
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(
             status_code=415,
-            detail="Only PDFs file are allowed. "
+            detail="Only PDF files are allowed. "
         )
 
     file_path = f"uploads/{file.filename}"
@@ -51,7 +51,7 @@ def analyze_resume(file: UploadFile = File(...)):
     if candidate is None:
         raise HTTPException(
             status_code=500,
-            detail="Resume alaysis failed..."
+            detail="Resume analysis failed..."
         )
 
     return candidate

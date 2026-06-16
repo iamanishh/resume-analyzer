@@ -1,5 +1,5 @@
 from ollama import Client
-from config.settings import MODEL_NAME
+from config.settings import MODEL_NAME, OLLAMA_BASE_URL
 from utils.json_parser import parse_llm_response
 from utils.logger import logger
 
@@ -8,7 +8,7 @@ class LLMService:
     def analyze_resume(self, prompt: str):
 
         client = Client(
-            host="http://host.docker.internal:11434"
+            host=OLLAMA_BASE_URL
         )
 
         for attempt in range(2):
