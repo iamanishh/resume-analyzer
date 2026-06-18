@@ -38,7 +38,7 @@ def analyze_resume(file: UploadFile = File(...)):
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(
             status_code=415,
-            detail="Only PDF files are allowed. "
+            detail="Only PDF files are allowed."
         )
 
     file_path = f"uploads/{file.filename}"
