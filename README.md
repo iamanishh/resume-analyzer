@@ -209,20 +209,15 @@ http://host.docker.internal:11434
 ## 📷 Screenshots
 
 ### Swagger UI
-
-> Add a screenshot here
 ![img.png](img.png)
 ---
 
 ### Resume Analysis Response
-
-> Add a screenshot here
 ![img_2.png](img_2.png)
 ---
 
 ### Resume Matching Response
-
-> Add a screenshot here
+![img_3.png](img_3.png)
 
 ---
 
@@ -246,28 +241,4 @@ on every push to the `main` branch.
 
 ---
 
-## 🔮 Future Improvements
 
-- User authentication
-- Database integration
-- Resume history
-- ATS score calculation
-- Async processing
-- Cloud LLM support
-- Batch resume analysis
-- Export results to PDF
-
----
-
-## 👨‍💻 Author
-
-**Manish Kumar**
-
-GitHub:
-https://github.com/iamanishh
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
