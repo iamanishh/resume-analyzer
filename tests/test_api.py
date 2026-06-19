@@ -12,7 +12,8 @@ def test_home():
     assert response.status_code == 200
 
     assert response.json() == {
-        "message": "Resume analyzer API is running"
+        "status": "healthy",
+        "service" : "Resume analyzer API"
     }
 
 def test_upload_non_pdf():
