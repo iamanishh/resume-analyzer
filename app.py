@@ -1,9 +1,10 @@
-import shutil
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI,Form, UploadFile, File, HTTPException
+
+from models.job_match import JobMatchAnalysis
 from services.resume_service import ResumeService
 from models.resume_analysis import ResumeAnalysis
 from exceptions.handlers import register_exception_handlers
-
+from utils.file_manager import FileManager
 
 app = FastAPI()
 
@@ -11,29 +12,13 @@ register_exception_handlers(app)
 
 resume_service = ResumeService()
 
+def validate_pdf(file: UploadFile):
 
-@app.get("/")
-def home():
-    return {
-        "message" : "Resume analyzer API is running"
-    }
-
-@app.get("/analyze", response_model=ResumeAnalysis)
-def analyze_resume():
-
-    candidate = resume_service.analyze_resume(
-        "data/sample_resume.pdf"
-    )
-
-    if candidate is None:
+    if not file.filename:
         raise HTTPException(
-            status_code=500,
-            detail="Resume analysis failed..."
+            status_code=415,
+            detail="No filename provided."
         )
-    return candidate
-
-@app.post("/analyze", response_model=ResumeAnalysis)
-def analyze_resume(file: UploadFile = File(...)):
 
     if not file.filename.lower().endswith(".pdf"):
         raise HTTPException(
@@ -41,17 +26,86 @@ def analyze_resume(file: UploadFile = File(...)):
             detail="Only PDF files are allowed."
         )
 
-    file_path = f"uploads/{file.filename}"
 
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+@app.get("/")
+def home():
+    return {
+        "status": "healthy",
+        "service" : "Resume analyzer API"
+    }
 
-    candidate = resume_service.analyze_resume(file_path)
+
+@app.get("/analyze", response_model=ResumeAnalysis)
+def analyze_resume():
+
+    candidate = resume_service.analyze_resume("data/sample_resume.pdf")
 
     if candidate is None:
         raise HTTPException(
             status_code=500,
             detail="Resume analysis failed..."
         )
-
     return candidate
+
+
+@app.post("/analyze", response_model=ResumeAnalysis)
+def analyze_resume(file: UploadFile = File(...)):
+
+    validate_pdf(file)
+    file_path = FileManager.save(file)
+
+    try:
+        candidate = resume_service.analyze_resume(file_path)
+
+        if candidate is None:
+            raise HTTPException(
+                status_code=500,
+                detail="Resume analysis failed..."
+            )
+        return candidate
+    finally:
+        FileManager.delete(file_path)
+
+@app.post("/analyze/batch", response_model=list[ResumeAnalysis])
+def analyze_multiple_resumes(files: list[UploadFile] = File(...)):
+
+    candidates = []
+
+    for file in files:
+        try:
+            validate_pdf(file)
+        except HTTPException:
+            continue
+
+        file_path = FileManager.save(file)
+
+        try:
+            candidate = resume_service.analyze_resume(file_path)
+
+            if candidate:
+                candidates.append(candidate)
+        finally:
+            FileManager.delete(file_path)
+
+    return candidates
+
+
+@app.post("/analyze/match", response_model=JobMatchAnalysis)
+def analyze_resume_against_job(file: UploadFile = File(...),
+                               job_description: str = Form(...)):
+
+    validate_pdf(file)
+    file_path = FileManager.save(file)
+
+    try:
+        candidate = resume_service.analyze_resume(file_path,job_description)
+        if candidate is None:
+            raise HTTPException(
+                status_code=500,
+                detail="Resume analysis failed..."
+            )
+        return candidate
+    finally:
+        FileManager.delete(file_path)
+
+

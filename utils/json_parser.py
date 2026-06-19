@@ -3,6 +3,10 @@ from utils.logger import logger
 
 def parse_llm_response(response: str):
     try:
+        response = response.strip()
+        if response.count("{") > response.count("}"):
+            response += "}"
+
         return json.loads(response)
 
     except Exception as e:

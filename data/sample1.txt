@@ -1,23 +1,13 @@
-Manish Kumar
+Python Backend Engineer
 
-Backend Software Engineer
+Required Skills: 
 
-Experience:
-3 years
-
-Skills:
 Python
+
 FastAPI
+
 Docker
-PostgreSQL
+
 Redis
-Git
+
 AWS
-
-Projects:
-Built REST APIs for fintech applications.
-Implemented Docker-based deployment.
-Worked on authentication and payment systems.
-
-Education:
-Bachelor of Computer Science
