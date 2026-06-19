@@ -34,19 +34,6 @@ def home():
         "service" : "Resume analyzer API"
     }
 
-
-@app.get("/analyze", response_model=ResumeAnalysis)
-def analyze_resume():
-    candidate = resume_service.analyze_resume("data/sample_resume.pdf")
-
-    if candidate is None:
-        raise HTTPException(
-            status_code=500,
-            detail="Resume analysis failed..."
-        )
-    return candidate
-
-
 @app.post("/analyze", response_model=ResumeAnalysis)
 def analyze_resume(file: UploadFile = File(...)):
 

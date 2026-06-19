@@ -10,4 +10,6 @@ MODEL_NAME = os.getenv(
 
 OLLAMA_BASE_URL = os.getenv(
     "OLLAMA_BASE_URL",
-    "http://localhost:11434")
+    "http://host.docker.internal:11434"
+
+)
