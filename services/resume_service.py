@@ -10,7 +10,7 @@ class ResumeService:
         self.document_service = DocumentService()
         self.llm = LLMService()
 
-    def analyze_resume(self, pdf_path, job_description):
+    def analyze_resume(self, pdf_path: str, job_description:str | None = None):
 
         logger.info(f"Starting resume analysis...")
 

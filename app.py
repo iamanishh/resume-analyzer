@@ -37,7 +37,6 @@ def home():
 
 @app.get("/analyze", response_model=ResumeAnalysis)
 def analyze_resume():
-
     candidate = resume_service.analyze_resume("data/sample_resume.pdf")
 
     if candidate is None:
@@ -65,29 +64,6 @@ def analyze_resume(file: UploadFile = File(...)):
         return candidate
     finally:
         FileManager.delete(file_path)
-
-@app.post("/analyze/batch", response_model=list[ResumeAnalysis])
-def analyze_multiple_resumes(files: list[UploadFile] = File(...)):
-
-    candidates = []
-
-    for file in files:
-        try:
-            validate_pdf(file)
-        except HTTPException:
-            continue
-
-        file_path = FileManager.save(file)
-
-        try:
-            candidate = resume_service.analyze_resume(file_path)
-
-            if candidate:
-                candidates.append(candidate)
-        finally:
-            FileManager.delete(file_path)
-
-    return candidates
 
 
 @app.post("/analyze/match", response_model=JobMatchAnalysis)
