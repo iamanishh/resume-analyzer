@@ -1,5 +1,3 @@
-from urllib import response
-
 from fastapi.testclient import TestClient
 from app import app
 from io import BytesIO
