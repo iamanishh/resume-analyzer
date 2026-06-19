@@ -6,7 +6,20 @@ from models.resume_analysis import ResumeAnalysis
 from exceptions.handlers import register_exception_handlers
 from utils.file_manager import FileManager
 
-app = FastAPI()
+app = FastAPI(
+    title="Resume Analyzer API",
+    description="""
+AI-powered Resume Analyzer built with FastAPI and Ollama.
+
+Features:
+- Resume Analysis
+- Resume vs Job Matching
+- PDF Upload
+- LLM Powered Skill Extraction
+""",
+    version="1.0.0",
+)
+
 
 register_exception_handlers(app)
 
@@ -27,14 +40,28 @@ def validate_pdf(file: UploadFile):
         )
 
 
-@app.get("/")
+@app.get("/", tags=["Health"])
 def home():
     return {
         "status": "healthy",
         "service" : "Resume analyzer API"
     }
 
-@app.post("/analyze", response_model=ResumeAnalysis)
+@app.post("/analyze",
+          tags=["Resume Analysis"],
+          summary="Analyze a resume PDF",
+          description="""
+Upload a PDF resume.
+
+Returns:
+
+- Candidate Name
+- Experience
+- Skills
+- Strengths
+- Weaknesses
+""",
+          response_model=ResumeAnalysis)
 def analyze_resume(file: UploadFile = File(...)):
 
     validate_pdf(file)
@@ -53,7 +80,10 @@ def analyze_resume(file: UploadFile = File(...)):
         FileManager.delete(file_path)
 
 
-@app.post("/analyze/match", response_model=JobMatchAnalysis)
+@app.post("/analyze/match",
+          tags=["Job Matching"],
+          summary="Compare resume against a job description",
+          response_model=JobMatchAnalysis)
 def analyze_resume_against_job(file: UploadFile = File(...),
                                job_description: str = Form(...)):
 
